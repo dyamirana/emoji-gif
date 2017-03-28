@@ -42,7 +42,7 @@ def upload(url,name):
         gif = requests.get(url, stream=True)
 
         if gif.status_code == 200:
-            uploadurl = api.docs.getWallUploadServer(group_id=settings.groupid)['upload_url']
+            uploadurl = apiuser.docs.getWallUploadServer(group_id=settings.groupid)['upload_url']
             responsefileuploaded = requests.post(uploadurl, files={'file': ('file.gif', gif.raw)})
             responsefileuploadeds = json.loads(responsefileuploaded.text)
             file = '%s' % responsefileuploadeds['file']
