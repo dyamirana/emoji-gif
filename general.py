@@ -114,6 +114,7 @@ def message(body, u_id,in_atch=[]):
 
         if any(command in i[1] for i in check):
             dbresult = check
+            print random.choice(dbresult)
             print check[0][2]
             if len(dbresult) != 0:
                 api.messages.send(user_id=u_id,
