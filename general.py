@@ -111,10 +111,10 @@ def message(body, u_id,in_atch=[]):
                 args = splitted[1::]
         cur.execute("SELECT t.* FROM emojitogif t WHERE emoji= (?)", (command,))
         check = cur.fetchall()
-        print check[0][2]
+
         if any(command in i[1] for i in check):
             dbresult = check
-
+            print check[0][2]
             if len(dbresult) != 0:
                 api.messages.send(user_id=u_id,
                                   message=" ", attachment=random.choice(dbresult)[2])
