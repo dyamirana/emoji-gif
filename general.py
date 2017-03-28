@@ -36,6 +36,7 @@ cur.execute('CREATE TABLE IF NOT EXISTS giphy (id INTEGER PRIMARY KEY, gifvkid T
 con.commit()
 
 admins = api.groups.getMembers(group_id=settings.groupid,filter='managers')["items"]
+print admins
 
 def upload(url,name):
     # try:
@@ -72,7 +73,7 @@ def check_users():
                     con.commit()
         else:
             for c in range(0,ofset):
-                for i in api.groups.getMembers(group_id=settings.groupid)["items"]:
+                for i in api.groups.getMembers(group_id=settings.groupid,offset=ofset*1000)["items"]:
                     cur.execute('SELECT t.* FROM users t WHERE vkid =%d' % (i))
                     if len(cur.fetchall()) == 0:
                         cur.execute('INSERT INTO users (vkid ,ingroup) VALUES (?,?);', (i, True))
