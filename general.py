@@ -116,10 +116,10 @@ def message(body, u_id,in_atch=[]):
             dbresult = check
             print random.choice(dbresult)
             print check[0][2]
-            if len(dbresult) != 0:
-                api.messages.send(user_id=u_id,
-                                  message=" ", attachment=random.choice(dbresult)[2])
-                return
+
+            api.messages.send(user_id=u_id,
+                              message=" ", attachment=str(random.choice(dbresult)[2]))
+            return
 
         if u'добавь' in body and str(u_id) in str(admins) :
             if len(args) >0 and len(in_atch)>0:
