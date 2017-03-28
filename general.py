@@ -73,7 +73,7 @@ def check_users():
                     con.commit()
         else:
             for c in range(0,ofset):
-                for i in api.groups.getMembers(group_id=settings.groupid,offset=ofset*1000)["items"]:
+                for i in api.groups.getMembers(group_id=settings.groupid,offset=ofset*1000  )["items"]:
                     cur.execute('SELECT t.* FROM users t WHERE vkid =%d' % (i))
                     if len(cur.fetchall()) == 0:
                         cur.execute('INSERT INTO users (vkid ,ingroup) VALUES (?,?);', (i, True))
@@ -119,7 +119,7 @@ def message(body, u_id,in_atch=[]):
                 return
 
         if u'добавь' in body and str(u_id) in str(admins) :
-            if len(args) >0 and any(e in args[0] for e in emojidict.keys()) and len(in_atch)>0:
+            if len(args) >0 and len(in_atch)>0:
                 for at in in_atch:
                     if at['type'] == 'doc':
                         if 'access_key' in at['doc']:attext ='doc%d_%d_%s' % (at['doc']['owner_id'], at['doc']['id'],at['doc']['access_key'])
