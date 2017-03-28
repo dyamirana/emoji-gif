@@ -111,6 +111,7 @@ def message(body, u_id,in_atch=[]):
                 args = splitted[1::]
         cur.execute("SELECT t.* FROM emojitogif t WHERE emoji= (?)", (command,))
         check = cur.fetchall()
+        print check
         if command in str(check):
             dbresult = check
 
