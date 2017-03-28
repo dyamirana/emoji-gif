@@ -112,7 +112,7 @@ def message(body, u_id,in_atch=[]):
         cur.execute("SELECT t.* FROM emojitogif t WHERE emoji= (?)", (command,))
         check = cur.fetchall()
         print check
-        if command in str(check):
+        if any(command in i[1] for i in check):
             dbresult = check
 
             if len(dbresult) != 0:
