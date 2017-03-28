@@ -109,9 +109,10 @@ def message(body, u_id,in_atch=[]):
 
             if len(splitted) > 1:
                 args = splitted[1::]
-        if any(e in command for e in emojidict.keys()) and random.randint(0,10)>=5:
-            cur.execute("SELECT t.* FROM emojitogif t WHERE emoji = (?)", (command,))
-            dbresult = cur.fetchall()
+        cur.execute("SELECT t.* FROM emojitogif t WHERE emoji= (?)", (command,))
+        check = cur.fetchall()
+        if command in str(check) and random.randint(0,10)>=5:
+            dbresult = check
 
             if len(dbresult) != 0:
                 api.messages.send(user_id=u_id,
