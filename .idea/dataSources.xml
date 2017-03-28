@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="data.db" uuid="8f7849db-446f-4fab-8baa-454bf1b0d142">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/../emoji-gif\data.db</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="data.db [2]" uuid="e508a924-de65-4211-a9cc-9475fc97f217">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/../emoji-gif\data.db</jdbc-url>
+    </data-source>
+  </component>
+</project>

@@ -1,0 +1,6 @@
+antigate==1.4.0
+Flask==0.12
+requests==2.10.0
+giphypop==0.3
+urllib3==1.15.1
+./vk-2.0.2
