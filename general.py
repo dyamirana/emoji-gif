@@ -111,7 +111,7 @@ def message(body, u_id,in_atch=[]):
                 args = splitted[1::]
         cur.execute("SELECT t.* FROM emojitogif t WHERE emoji= (?)", (command,))
         check = cur.fetchall()
-        if command in str(check) and random.randint(0,10)>=5:
+        if command in str(check):
             dbresult = check
 
             if len(dbresult) != 0:
