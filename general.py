@@ -228,7 +228,7 @@ def worker():
 def web_process():
     if __name__ == '__main__':
         port = int(os.environ.get('PORT', 80))
-        app.run(host='10.0.0.4', port=port)
+        app.run(host='0.0.0.0', port=port)
         app.logger.setLevel(logging.ERROR)
 
 
