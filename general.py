@@ -99,7 +99,7 @@ def message(body, u_id,in_atch=[]):
 
     cur.execute('SELECT t.* FROM users t WHERE vkid = %d' % u_id)
 
-    if True:#len(cur.fetchall()) != 0:
+    if len(cur.fetchall()) != 0:
         body = body.lower()
         args = []
         command = ''
