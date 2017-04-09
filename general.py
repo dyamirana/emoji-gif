@@ -206,23 +206,27 @@ def callback():
         return 'ok'
     return 'ok'
 
-
+dics = {}
 def worker():
-    # event.wait()
-    # try:
-    while True:
-        if not conveyor.empty():
-            item = conveyor.get()
-            if item['object']['body'] != '':
-                if 'attachments' in item['object']:
-                    hmm = message(item['object']['body'], item['object']['user_id'],item['object']['attachments'])
-                else:
-                    hmm =message(item['object']['body'], item['object']['user_id'])
-            conveyor.task_done()
-        sleep(0.1)
-    # except Exception as exp:
-    #     print 'Exception in Worker %s' % (exp)
-    #     worker()
+    event.wait()
+    try:
+        while True:
+            if not conveyor.empty():
+
+                item = conveyor.get()
+                if item['object']['body'] != '':
+                    if 'attachments' in item['object']:
+                        dics.update({item['object']['user_id']: threading.Thread(message(item['object']['body'], item['object']['user_id'],item['object']['attachments']))})
+                        # hmm = message(item['object']['body'], item['object']['user_id'],item['object']['attachments'])
+                    else:
+                        dics.update({item['object']['user_id']: threading.Thread(message(item['object']['body'], item['object']['user_id']))})
+                        # hmm =message(item['object']['body'], item['object']['user_id'])
+                    dics[item['object']['user_id']].start()
+                conveyor.task_done()
+            sleep(0.1)
+    except Exception as exp:
+        print 'Exception in Worker %s' % (exp)
+        worker()
 
 
 def web_process():
