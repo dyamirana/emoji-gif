@@ -208,7 +208,6 @@ def callback():
 
 dics = {}
 def worker():
-    event.wait()
     try:
         while True:
             if not conveyor.empty():
