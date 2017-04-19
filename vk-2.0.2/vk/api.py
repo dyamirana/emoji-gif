@@ -124,6 +124,7 @@ class Session(object):
         with open('img.jpg', 'wb') as out_file:
             shutil.copyfileobj(response.raw, out_file)
         del response
+        print '44ecfaa6cb6d9ec57a4c800a96f354d3'
         captcha = str(AntiGate('44ecfaa6cb6d9ec57a4c800a96f354d3', 'img.jpg'))
         print captcha
         """
