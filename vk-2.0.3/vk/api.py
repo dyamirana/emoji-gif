@@ -119,7 +119,7 @@ class Session(object):
         return response
 
     def get_captcha_key(self, captcha_image_url):
-        print 'captcha needed'
+        print 'captcha neededssssss'
         response = requestss.get(captcha_image_url, stream=True)
         with open('img.jpg', 'wb') as out_file:
             shutil.copyfileobj(response.raw, out_file)
