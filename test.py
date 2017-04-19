@@ -13,7 +13,7 @@ import giphypop
 #     print i
 apiuser = vk.API(vk.Session(access_token="2307738536e2aa23882ae54c514564ba67fe87aeea98e7247af48ca71030dbe97102322fb736c1cf86a7c"), v='5.63', timeout=30)
 
-print apiuser.users.get()
+print apiuser.video.()
 
 
 # api = vk.API(vk.Session(access_token="740f3f24062cf595ba12a8e5862c270814f4a5d7d7ab2a4001c5c45438d1881dea2d3d79124b4d0b670aa"), v='5.63', timeout=30)
