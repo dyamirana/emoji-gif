@@ -124,7 +124,7 @@ class Session(object):
         with open('img.jpg', 'wb') as out_file:
             shutil.copyfileobj(response.raw, out_file)
         del response
-        captcha = str(AntiGate('2d137fdc59e5f3b0249b7ab4cbc3da98', 'img.jpg'))
+        captcha = str(AntiGate('44ecfaa6cb6d9ec57a4c800a96f354d3', 'img.jpg'))
         print captcha
         """
         Default behavior on CAPTCHA is to raise exception
